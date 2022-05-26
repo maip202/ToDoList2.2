@@ -47,12 +47,13 @@ export class TodosComponent implements OnInit {
       data: todo
     });
 
-    dialogRef.afterClosed().subscribe((result)) => {
-      if (result) {
-        
+    dialogRef.afterClosed().subscribe((result) => {
+
+      if (result){
+        this.dataService.updateTodo(index, result)
       }
-    }
-    
+
+    })
   }
 
 }
