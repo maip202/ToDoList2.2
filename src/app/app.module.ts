@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditTodoDialogComponent } from './edit-todo-dialog/edit-todo-dialog.component';
 
 import { MatDialogModule } from '@angular/material/dialog';
-import { ToolTipDirective } from './tool-tip.directive';
+import { ToolTipDirective } from './shared/tool-tip.directive';
 
 @NgModule({
   declarations: [

@@ -1,5 +1,4 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import tippy from 'tippy.js';
+import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Todo } from '../shared/todo.model';
 
 @Component({
@@ -7,26 +6,22 @@ import { Todo } from '../shared/todo.model';
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.scss']
 })
-export class TodoItemComponent implements OnInit, AfterViewInit {
+export class TodoItemComponent implements OnInit {
 
   @Input() todo: Todo
+
   @Output() todoClicked: EventEmitter<void> = new EventEmitter()
   @Output() editClicked: EventEmitter<void> = new EventEmitter()
   @Output() deleteClicked: EventEmitter<void> = new EventEmitter()
 
-  @ViewChild('editBtn') editBtnElRef: ElementRef<HTMLElement>
-
+  test: string = "Default Value";
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  ngAfterViewInit(): void {
-    tippy(this.editBtnElRef.nativeElement, {
-      content: 'Test Toooltid'
-    })
-
+    setTimeout(() => {
+      this.test = 'New Value'
+    }, 1000)
   }
 
   onTodoClicked() {
@@ -37,10 +32,9 @@ export class TodoItemComponent implements OnInit, AfterViewInit {
     this.editClicked.emit()
   }
 
-  onDeleteClicked(){
+  onDeleteClicked() {
     this.deleteClicked.emit()
   }
-
 
 
 }
