@@ -46,6 +46,12 @@ export class TodosComponent implements OnInit {
       width: '700px',
       data: todo
     });
+
+    dialogRef.afterClosed().subscribe((result)) => {
+      if (result) {
+        
+      }
+    }
     
   }
 
