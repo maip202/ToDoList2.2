@@ -26,8 +26,6 @@
 
 }
 
-
-
 .container {
     max-width: 800px;
 }
@@ -44,6 +42,8 @@
 .todo-item {
     display: flex;
     align-items: center;
+
+    position: relative;
 
     cursor: pointer;
     
@@ -101,4 +101,67 @@
         opacity: 1;
 
     }
+
+}
+.todo-item .todo-controls-box {
+
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+
+    display: flex;
+
+    // hide by default
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(2px);
+
+    transition: opacity 0.2s visibility 0.2s transform 0.2s;
+
+}
+
+.todo-item:hover .todo-controls-box {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.4s;
+
+    transform: translateY(0);
+}
+
+.todo-controls-box .todo-control-button {
+    display: flex;
+    background: #eee;
+    border-radius: 15px;
+    padding: 5px 5px;
+    margin: 2px;
+
+    i.material-icons {
+        color: #555;
+        font-size: 20px;
+        
+    }
+
+    &:hover {
+        background: #eee;
+
+        i.material-icons {
+            color: #333;
+        }
+    }
+
+    &:active {
+        background: #e5e7e8;
+    }
+
+    &:first-of-type {
+        border-top-left-radius: 15px;
+    }
+
+    &:last-of-type {
+        border-top-right-radius: 15px;
+    }
+}
+
+.todo-controls-box .todo-control-button.is-danger:active i.material-icons {
+    color: rgb(155, 27, 27);
 }
