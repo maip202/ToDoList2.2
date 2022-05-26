@@ -8,7 +8,7 @@
     </div>
 </section>
 
-<div class="container">
+<div class="container add-todo-box-container">
     <div class="add-todo-box">
 
         <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
@@ -45,6 +45,7 @@
             [todo]="todo"
             (todoClicked)="toggleCompleted(todo)"
             (editClicked)="editTodo(todo)"
+            (deleteClicked)="deleteTodo(todo)"
         ></app-todo-item>
 
         </div>
