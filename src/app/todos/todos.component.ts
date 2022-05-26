@@ -18,7 +18,6 @@ export class TodosComponent implements OnInit {
   ngOnInit(): void {
     this.todos = this.dataService.getAllTodos()
   }
-
   onFormSubmit(form: NgForm) {
 
     if (form.invalid) return alert("No es valida")
@@ -35,6 +34,12 @@ export class TodosComponent implements OnInit {
 
     //set todo to completed
     // alert("Todo was clicked. This code is being executed in the TODOS component")
+  }
+
+  editTodo(todo: Todo) {
+
+    const index = this.todos.indexOf(todo)
+    
   }
 
 }
